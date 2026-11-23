@@ -1,43 +1,23 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostPreview from '../components/PostPreview.astro';
 
-export async function getStaticPaths() {
-    const labs = await getCollection('lab');
-    return labs.map((lab) => ({
-        params: { id: String(lab.id).replace(/\.(md|mdx)$/i, '').replace(/^\/+|\/+$/g, '') },
-        props: { lab }
-    }));
-}
-
-type Props = { lab: CollectionEntry<'lab'> };
-
-const { lab } = Astro.props;
-const { title, publishDate, updatedDate, excerpt } = lab.data;
-const { Content } = await render(lab);
+const allLabs = await getCollection('lab');
+const labs = allLabs
+    .filter((item) => item && item.data && item.data.publishDate)
+    .sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
-<BaseLayout description="{excerpt}" showHeader="{false}" title="{title}">
-    <article class="mb-16 sm:mb-24">
-        <header class="mb-8">
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl">{title}</h1>
-            <div class="mt-4 text-sm">
-                <FormattedDate date="{publishDate}"/>
-                {
-                    updatedDate && (
-                        <>
-                            {' '}
-                            <span>
-                                (Actualizado el <FormattedDate date="{updatedDate}"/>)
-                            </span>
-                        </>
-                    )
-                }
-            </div>
-        </header>
-        <div class="max-w-none prose sm:prose-lg">
-            <Content/>
-        </div>
-    </article>
+<BaseLayout description="Laboratorios prácticos de SQL avanzado, Concurrencia, PL/SQL, MongoDB y Arquitectura Políglota." showHeader="{false}" title="Lab">
+    <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Lab</h1>
+    {
+        labs.length > 0 ? (
+            labs.map((lab) => <PostPreview basePath="/lab" class="mb-10 sm:mb-12" post="{lab}"/>)
+        ) : (
+            <p class="mb-12 text-sm">
+                No hay laboratorios publicados aún en <code>src/content/lab/</code>.
+            </p>
+        )
+    }
 </BaseLayout>
