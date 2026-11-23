@@ -16,10 +16,30 @@ const siteConfig: SiteConfig = {
         alt: 'Portafolio BD2'
     },
     headerNavLinks: [
-        { text: 'Inicio', href: '/' },
-        { text: 'Proyectos', href: '/projects' },
-        { text: 'Presentación', href: '/presentacion' },
-        { text: 'Evidencias', href: '/evidencias' }
+        {
+            text: 'Home',
+            href: '/'
+        },
+        {
+            text: 'Projects',
+            href: '/projects'
+        },
+        {
+            text: 'Blog',
+            href: '/blog'
+        },
+        {
+            text: 'Lab',
+            href: '/lab'
+        },
+        {
+            text: 'Tags',
+            href: '/tags'
+        },
+        {
+            text: 'Evidence',
+            href: '/evidencias'
+        }
     ],
     footerNavLinks: [
         { text: 'Sobre mí', href: '/about' },
