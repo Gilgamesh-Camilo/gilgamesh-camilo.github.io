@@ -2,25 +2,24 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostPreview from '../components/PostPreview.astro';
-import { sortItemsByDateDesc } from '../utils/data-utils';
 
-const allLabs = await getCollection('lab');
-const labs = sortItemsByDateDesc(allLabs);
+const rawLabs = await getCollection('lab');
+const labs = (rawLabs || [])
+    .filter((item) => item && item.data && item.data.title)
+    .sort((a, b) => {
+        const dateA = a.data.publishDate ? new Date(a.data.publishDate).valueOf() : 0;
+        const dateB = b.data.publishDate ? new Date(b.data.publishDate).valueOf() : 0;
+        return dateB - dateA;
+    });
 ---
 
-<BaseLayout
-    title="Lab"
-    description="Laboratorios prácticos de SQL avanzado, Concurrencia, PL/SQL, MongoDB y Arquitectura Políglota."
-    showHeader={false}
->
+<BaseLayout description="Laboratorios prácticos de bases de datos." showHeader="{false}" title="Lab">
     <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Lab</h1>
     {
         labs.length > 0 ? (
-            labs.map((lab) => <PostPreview post={lab} basePath="/lab" class="mb-10 sm:mb-12" />)
+            labs.map((lab) => <PostPreview basePath="/lab" class="mb-10 sm:mb-12" post="{lab}"/>)
         ) : (
-            <p class="mb-12 text-sm">
-                No hay laboratorios publicados aún en <code>src/content/lab/</code>.
-            </p>
+            <p class="mb-12 text-sm">No hay laboratorios publicados aún.</p>
         )
     }
 </BaseLayout>

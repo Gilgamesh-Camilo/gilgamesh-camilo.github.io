@@ -5,8 +5,8 @@ import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
     const labs = await getCollection('lab');
-    return labs
-        .filter((lab) => lab && lab.data)
+    return (labs || [])
+        .filter((lab) => lab && lab.data && lab.id)
         .map((lab) => ({
             params: { id: String(lab.id).replace(/\.(md|mdx)$/i, '').replace(/^\/+|\/+$/g, '') },
             props: { lab }
@@ -26,16 +26,6 @@ const { Content } = await render(lab);
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl">{title}</h1>
             <div class="mt-4 text-sm">
                 <FormattedDate date="{publishDate}"/>
-                {
-                    updatedDate && (
-                        <>
-                            {' '}
-                            <span>
-                                (Actualizado el <FormattedDate date="{updatedDate}"/>)
-                            </span>
-                        </>
-                    )
-                }
             </div>
         </header>
         <div class="max-w-none prose sm:prose-lg">
