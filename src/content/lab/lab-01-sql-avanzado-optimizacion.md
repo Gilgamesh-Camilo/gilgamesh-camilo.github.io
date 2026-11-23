@@ -75,4 +75,4 @@ El motor de Oracle no ejecuta una consulta en el orden sintáctico en que se red
   * *Después de crear `ix_vuelos_estado_fecha` y usar rango puro:* Operación `INDEX RANGE SCAN`, `Cost = 4`, `Consistent Gets = 9` (reducción del 97 % en lecturas lógicas).
 * **Aprendizaje:** Un índice mal ordenado o anulado por una función sobre la columna (`TRUNC`, `TO_CHAR`, `UPPER`) es invisible para el optimizador basado en costos (CBO).
 
-🔗 **[Explorar Repositorio de Evidencias y Scripts en GitHub](https://github.com/Gilgamesh-Camilo/evidencias)**
+**[Descargar Script SQL Completo](/labs/lab01_a_03_oracle_integrado.sql)**

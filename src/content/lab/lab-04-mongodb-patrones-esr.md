@@ -68,4 +68,4 @@ En un árbol B-Tree de MongoDB, cuando se evalúa primero un predicado de rango 
   * *Con índice ESR:* `stage: "IXSCAN"`, `totalDocsExamined` igual al número exacto de documentos devueltos y eliminación completa de la etapa `SORT` en RAM.
 * **Aprendizaje:** El modelado en MongoDB responde a la máxima *"lo que se consulta junto, se almacena junto"*, equilibrando desnormalización controlada con límites físicos de memoria.
 
-🔗 **[Explorar Repositorio de Evidencias y Scripts en GitHub](https://github.com/Gilgamesh-Camilo/evidencias)**
+**[Descargar Script SQL Completo](/labs/lab01_a_03_oracle_integrado.sql)**

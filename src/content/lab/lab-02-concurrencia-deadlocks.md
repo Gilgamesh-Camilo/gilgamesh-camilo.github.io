@@ -78,4 +78,4 @@ WHERE l.block = 1;
 * **Evidencia:** Mediante `SYS_CONTEXT('USERENV', 'SID')` se verificaron dos sesiones independientes (`SID 114` y `SID 208`), midiendo tiempos reales de espera cuando una sesión olvidaba ejecutar `COMMIT` (quedando `INACTIVE` en `V$SESSION` mientras retenía el candado `TX`).
 * **Aprendizaje:** El aislamiento `READ COMMITTED` garantiza lecturas consistentes mediante segmentos `UNDO` (sin lectores bloqueando escritores), pero exige que el desarrollador proteja explícitamente las operaciones de lectura-modificación-escritura con `FOR UPDATE` y ordenamiento determinístico.
 
-🔗 **[Explorar Repositorio de Evidencias y Scripts en GitHub](https://github.com/Gilgamesh-Camilo/evidencias)**
+**[Descargar Script SQL Completo](/labs/lab01_a_03_oracle_integrado.sql)**

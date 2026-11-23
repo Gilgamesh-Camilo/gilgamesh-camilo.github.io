@@ -78,4 +78,4 @@ Cada vez que un bloque PL/SQL ejecuta una sentencia SQL embebida dentro de un ci
 * **Evidencia:** Se ejecutó una batería de 6 casos de prueba (dispensación exitosa, stock insuficiente, lote vencido, alergia detectada, exceso de polifarmacia y error de parámetro nulo). Los 5 casos de fallo fueron revertidos íntegramente en las tablas operativas mientras que sus trazas quedaron persistidas con `ID_LOG` secuencial en `HIS_LOG_ERRORES`.
 * **Aprendizaje:** Las secuencias (`SEQUENCE`) en Oracle no hacen `ROLLBACK` cuando falla una transacción porque se gestionan fuera del ámbito transaccional para garantizar escalabilidad concurrente.
 
-🔗 **[Explorar Repositorio de Evidencias y Scripts en GitHub](https://github.com/Gilgamesh-Camilo/evidencias)**
+**[Descargar Script SQL Completo](/labs/lab01_a_03_oracle_integrado.sql)**

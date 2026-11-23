@@ -54,4 +54,4 @@ Las colecciones documentales en MongoDB (`fichas_bibliograficas`, `resenas`, `li
 * **Evidencia:** Al intentar ejecutar un `DELETE` directo desde el rol `app_usuario`, PostgreSQL rechazó la sentencia (`permission denied`), mientras que toda actualización legítima quedó registrada automáticamente en `auditoria` en formato `JSONB` indexable sin exponer hashes de contraseñas.
 * **Aprendizaje:** La persistencia políglota no consiste en duplicar datos sin control, sino en asignar cada carga de trabajo al motor cuya arquitectura física (ACID relacional vs. flexibilidad documental) resuelve mejor el problema.
 
-🔗 **[Explorar Repositorio de Evidencias y Scripts en GitHub](https://github.com/Gilgamesh-Camilo/evidencias)**
+**[Descargar Script SQL Completo](/labs/lab01_a_03_oracle_integrado.sql)**

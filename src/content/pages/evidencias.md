@@ -1,22 +1,10 @@
 ---
-title: Evidencias
-seo:
-  title: Evidencias de BD2 | Juan Camilo Martín Barrero
-  description: Repositorio de evidencias, scripts y proyectos de Bases de Datos.
+title: "Evidencias y Proceso de Aprendizaje"
 ---
 
-En esta sección se documentarán todas las evidencias técnicas, consultas y scripts desarrollados a lo largo del curso de Bases de Datos.
+Este portafolio documenta el desarrollo práctico e investigativo de las asignaturas **Bases de Datos I y II**, estructurado en laboratorios aplicados, investigaciones técnicas y una arquitectura híbrida en producción.
 
----
-
-## 1. SQL
-*(Sección vacía por ahora. Aquí se adjuntarán las consultas DDL y DML estructuradas).*
-
-## 2. PL/SQL Scripts
-*(Sección vacía por ahora. Aquí se documentarán los procedimientos almacenados, triggers y funciones).*
-
-## 3. NoSQL
-*(Sección vacía por ahora. Espacio reservado para modelos orientados a documentos).*
-
-## 4. Proyecto
-*(Sección vacía por ahora. Aquí se publicará el avance y la documentación del proyecto final).*
+### Estructura de Evidencias
+* **Laboratorios Aplicados (`/lab`):** 5 casos de ingeniería documentados con contexto de negocio, arquitectura física, fragmentos críticos de código, investigación teórica y análisis de resultados (*Explain Plan*, bloqueos `TX/TM`, paquetes PL/SQL, patrones NoSQL y persistencia políglota).
+* **Investigaciones Técnicas (`/blog`):** Profundización en el optimizador basado en costos (CBO), control de concurrencia MVCC, rendimiento con `BULK COLLECT`/`FORALL` y modelado documental.
+* **Repositorio de Código Versionado:** Todos los scripts ejecutables completos (`.sql` y `.js`) se encuentran organizados y versionados en **[GitHub — Gilgamesh-Camilo/evidencias](https://github.com/Gilgamesh-Camilo/evidencias)**.
