@@ -13,11 +13,11 @@ const labs = (rawLabs || [])
     });
 ---
 
-<BaseLayout description="Laboratorios prácticos de bases de datos." showHeader="{false}" title="Lab">
+<BaseLayout description="Laboratorios prácticos de bases de datos." showHeader={false} title="Lab">
     <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Lab</h1>
     {
         labs.length > 0 ? (
-            labs.map((lab) => <PostPreview basePath="/lab" class="mb-10 sm:mb-12" post="{lab}"/>)
+            labs.map((lab) => <PostPreview basePath="/lab" class="mb-10 sm:mb-12" post={lab}/>)
         ) : (
             <p class="mb-12 text-sm">No hay laboratorios publicados aún.</p>
         )

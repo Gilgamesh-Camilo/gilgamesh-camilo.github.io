@@ -20,18 +20,18 @@ const { title, publishDate, updatedDate, excerpt } = lab.data;
 const { Content } = await render(lab);
 ---
 
-<BaseLayout description="{excerpt}" showHeader="{false}" title="{title}">
+<BaseLayout description={excerpt} showHeader={false} title={title}>
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl">{title}</h1>
             <div class="mt-4 text-sm">
-                <FormattedDate date="{publishDate}"/>
+                <FormattedDate date={publishDate}/>
                 {
                     updatedDate && (
                         <>
                             {' '}
                             <span>
-                                (Actualizado el <FormattedDate date="{updatedDate}"/>)
+                                (Actualizado el <FormattedDate date={updatedDate}/>)
                             </span>
                         </>
                     )
